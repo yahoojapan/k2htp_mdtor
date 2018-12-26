@@ -22,7 +22,7 @@ The main purpose of **mdtor**, which loads multiple [K2HASH](https://k2hash.antp
 Read the following documents about **mdtor** for details.
 
 ### Documents
-  - [Document top page](https://k2htpdtor.antpick.ax/)
+  - [Document top page](https://k2htpmdtor.antpick.ax/)
   - [Github wiki page](https://github.com/yahoojapan/k2htp_mdtor/wiki)
   - [About AntPickax](https://antpick.ax/)
 

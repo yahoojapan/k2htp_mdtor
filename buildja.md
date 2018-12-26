@@ -52,6 +52,7 @@ $ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.d
     | sudo bash
 $ sudo apt-get install autoconf autotools-dev gcc g++ make gdb libtool pkg-config \
     libyaml-dev libfullock-dev k2hash-dev chmpx-dev -y
+$ sudo apt-get install git -y
 ```
 
 Fedora28またはCentOS7.x（6.x）ユーザーの場合は、以下の手順に従ってください。
@@ -62,13 +63,13 @@ $ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.r
     | sudo bash
 $ sudo yum install autoconf automake gcc gcc-c++ gdb make libtool pkgconfig \
     libyaml-devel libfullock-devel k2hash-devel chmpx-devel -y
+$ sudo yum install git -y
 ```
 
 ## 2. GitHubからソースコードを複製する
 
 GitHubから**mdtor**のソースコードをダウンロードしてください。
 ```bash
-$ sudo apt-get install git -y
 $ git clone https://github.com/yahoojapan/k2htp_mdtor.git
 ```
 

@@ -52,6 +52,7 @@ $ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.d
     | sudo bash
 $ sudo apt-get install autoconf autotools-dev gcc g++ make gdb libtool pkg-config \
     libyaml-dev libfullock-dev k2hash-dev chmpx-dev -y
+$ sudo apt-get install git -y
 ```
 
 For Fedora28 or CentOS7.x(6.x) users, follow the steps below:
@@ -62,13 +63,13 @@ $ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.r
     | sudo bash
 $ sudo yum install autoconf automake gcc gcc-c++ gdb make libtool pkgconfig \
     libyaml-devel libfullock-devel k2hash-devel chmpx-devel -y
+$ sudo yum install git -y
 ```
 
 ## 2. Clone the source code from GitHub
 
 Download the **mdtor**'s source code from [GitHub](https://github.com/).
 ```bash
-$ sudo apt-get install git -y
 $ git clone https://github.com/yahoojapan/k2htp_mdtor.git
 ```
 

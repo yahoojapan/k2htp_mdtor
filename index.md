@@ -1,0 +1,42 @@
+---
+layout: default
+language: en-us
+title: k2htp_mdtor
+short_desc: K2Hash Transaction Plugin for Multiple Distributed Transaction Of Repeater
+lang_opp_file: indexja.html
+lang_opp_word: To Japanese
+arrow_link_overview: <a href="home.html" class="link-title"><span class="arrow-base link-arrow-right"></span>Overview</a>
+arrow_link_details: <a href="details.html" class="link-title"><span class="arrow-base link-arrow-right"></span>Details</a>
+arrow_link_usage: <a href="usage.html" class="link-title"><span class="arrow-base link-arrow-right"></span>Usage</a>
+arrow_link_build: <a href="build.html" class="link-title"><span class="arrow-base link-arrow-right"></span>Build</a>
+---
+
+# k2htp_mdtor
+
+**k2htp_mdtor(aka mdtor)** is a [K2HASH](https://k2hash.antpick.ax) transaction plugin that handles [K2HASH](https://k2hash.antpick.ax) transaction logs. Once an application updates a [K2HASH](https://k2hash.antpick.ax) file, [K2HASH](https://k2hash.antpick.ax) gerenates a transaction log. **mdtor** receives it and passes it to other [K2HASH](https://k2hash.antpick.ax) transaction plugins.
+
+The main purpose of **mdtor**, which loads multiple [K2HASH](https://k2hash.antpick.ax) transaction plugins, is to call the arbitrary function defined in them. When calling the each function, **mdtor** passes [K2HASH](https://k2hash.antpick.ax) transaction logs to it as a function's parameter. A common [K2HASH](https://k2hash.antpick.ax) transaction plugin loads no other one. We recommend you to use **mdtor** if you want to use multiple [K2HASH](https://k2hash.antpick.ax) transaction plugins. 
+
+**mdtor** is designed to cooprate with subsystems. **mdtor** can pass a [K2HASH](https://k2hash.antpick.ax) transaction log to other transaction plugins simultaneously. This can help subsystems to track updates from an application very quickly.
+
+Read the following documents about **mdtor** for details.
+
+## {{ page.arrow_link_overview }}
+
+[Overview](home.html) page describes the **mdtor** overview.
+
+## {{ page.arrow_link_details }}
+
+[Details](details.html) page describes the **mdtor** initialization process and settings.
+
+## {{ page.arrow_link_usage }}
+
+[Usage](usage.html) page describes a **mdtor**'s example usage.
+
+## {{ page.arrow_link_build }}
+
+[Build](build.html) page instructs how to build **mdtor**.
+
+# **About AntPickax**
+
+[AntPickax](https://antpick.ax/) is an open source project by [Yahoo Japan Corporation](https://about.yahoo.co.jp/info/en/company/).

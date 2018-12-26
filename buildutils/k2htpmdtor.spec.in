@@ -1,0 +1,97 @@
+#
+# k2htpmdtor for K2HASH MULTI TRANSACTION PLUGIN.
+#
+# Copyright 2016 Yahoo Japan Corporation.
+#
+# K2HASH TRANSACTION PLUGIN is programable I/F for processing
+# transaction data from modifying K2HASH data.
+#
+# For the full copyright and license information, please view
+# the license file that was distributed with this source code.
+#
+# AUTHOR:   Takeshi Nakatani
+# CREATE:   Mon Dec 19 2016
+# REVISION:
+#
+
+#
+# Local macros/define
+#
+%if %{undefined package_revision}
+%global package_revision 1
+%endif
+
+%if %{undefined make_build}
+%global make_build %{__make} %{?_smp_mflags}
+%endif
+
+%if %{undefined autosetup}
+%global autosetup %setup -q
+%endif
+
+%global gittag v@VERSION@
+
+%if %{undefined make_check}
+%global make_check 1
+%endif
+
+#
+# main package
+#
+Summary: @SHORTDESC@
+Name: @PACKAGE_NAME@
+Version: @VERSION@
+Release: %{package_revision}%{?dist}
+License: @PKGLICENSE@
+@RPMPKG_GROUP@
+URL: https://@GIT_DOMAIN@/@GIT_ORG@/@PACKAGE_NAME@
+Source0: https://@GIT_DOMAIN@/@GIT_ORG@/@PACKAGE_NAME@/archive/%{gittag}/%{name}-%{version}.tar.gz
+Requires: libfullock%{?_isa} >= 1.0.33, k2hash%{?_isa} >= 1.0.68, chmpx%{?_isa} >= 1.0.65
+BuildRequires: git-core gcc-c++ make libtool libfullock-devel%{?_isa} >= 1.0.33, k2hash-devel%{?_isa} >= 1.0.68, chmpx-devel%{?_isa} >= 1.0.65
+
+%description
+@LONGDESC@
+
+%prep
+%autosetup -n %{name}-%{version}
+
+%build
+./autogen.sh
+%configure --disable-static @CONFIGUREWITHOPT@
+%make_build
+
+%install
+%make_install
+find %{buildroot} -name '*.la' -exec rm -f {} ';'
+find %{buildroot} -name '*.so' -exec rm -f {} ';'
+
+%if %{make_check}
+%check
+%{__make} check
+%endif
+
+%if %{defined ldconfig_scriptlets}
+%ldconfig_scriptlets
+%else
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+%endif
+
+%if 0%{?rhel} == 6
+%clean
+rm -rf %{buildroot}
+%endif
+
+%files
+%if 0%{?rhel} == 6
+%doc COPYING
+%defattr(-,root,root)
+%else
+%license COPYING
+%endif
+%doc README AUTHORS ChangeLog
+%{_libdir}/*.so.*
+%{_mandir}/man3/*
+
+%changelog
+@RPMCHANGELOG@

@@ -15,9 +15,9 @@ next_string: Usage
 
 # Details
 
-この章は2つの部分で構成されています。 ひとつは**k2htp_mdtor**（別名**mdtor**）を有効にする方法です。 もう一つは**mdtor**の設定ファイルの詳細です。
+この章は2つの部分で構成されています。 ひとつは**k2htp_mdtor**（以下**K2HTPMDTOR**と呼ぶ）を有効にする方法です。 もう一つは**K2HTPMDTOR**の設定ファイルの詳細です。
 
-## **mdtor**を有効にする方法
+## **K2HTPMDTOR**を有効にする方法
 
 有効にするには、2つのステップが必要です。
 
@@ -26,7 +26,7 @@ next_string: Usage
 
 ### ロードmdtor
 
-**mdtor**は[K2HASH](https://k2hash.antpick.ax)トランザクションログを扱うための共有ライブラリです。アプリケーションは次のAPIを呼び出して**mdtor**をロードします。 APIは現在CおよびC ++で利用可能です。詳細はそれぞれのAPIリファレンスを読んでください。
+**K2HTPMDTOR**は[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションログを扱うための共有ライブラリです。アプリケーションは次のAPIを呼び出して**K2HTPMDTOR**をロードします。 APIは現在CおよびC ++で利用可能です。詳細はそれぞれのAPIリファレンスを読んでください。
 
 - C++ API  
 [K2HTransDynLib::get](https://k2hash.antpick.ax/developer.html#K2HTRANSDYNLIB)
@@ -36,7 +36,7 @@ next_string: Usage
 
 ### トランザクションを有効にする
 
-**mdtor**を正常にロードしたら、次のステップは次のAPIを呼び出してトランザクションログを有効にするように[K2HASH](https://k2hash.antpick.ax)に指示することです。あなたは[K2HASH](https://k2hash.antpick.ax) APIがAPIドキュメントの**mdtor**設定ファイルパスを必要とするのを見るでしょう。心配しないでください。次のセクションで設定ファイルについて説明します。このセクションでは、APIがパスを必要とすることだけを認識してください。
+**K2HTPMDTOR**を正常にロードしたら、次のステップは次のAPIを呼び出してトランザクションログを有効にするように[K2HASH](https://k2hash.antpick.ax/indexja.html)に指示することです。あなたは[K2HASH](https://k2hash.antpick.ax/indexja.html) APIがAPIドキュメントの**K2HTPMDTOR**設定ファイルパスを必要とするのを見るでしょう。心配しないでください。次のセクションで設定ファイルについて説明します。このセクションでは、APIがパスを必要とすることだけを認識してください。
 
 - C++ API  
 [K2HShm::EnableTransaction](https://k2hash.antpick.ax/developer.html#-k2hshm-class)
@@ -44,9 +44,9 @@ next_string: Usage
 - C API  
 [k2h_enable_transaction_param](https://k2hash.antpick.ax/developer.html#-transaction-archive-familyc-i--f)
 
-## **mdtor**の設定ファイル
+## **K2HTPMDTOR**の設定ファイル
 
-このセクションでは、設定ファイルの形式とそのパラメータについて説明します。設定ファイルは**mdtor**の動作を決定します。 **mdtor**がトランザクションプラグインを制御する方法
+このセクションでは、設定ファイルの形式とそのパラメータについて説明します。設定ファイルは**K2HTPMDTOR**の動作を決定します。 **K2HTPMDTOR**がトランザクションプラグインを制御する方法
 
 ### 設定ファイルの形式
 
@@ -60,18 +60,18 @@ INI、JSON、YAMLはサポートされているファイル形式です。以下
 
 ### 設定ファイルのパラメータ
 
-このセクションでは、**mdtor**の設定ファイル内のパラメータについて説明します。まだ見たことがない場合は、上記の例が表示されることがあります。
+このセクションでは、**K2HTPMDTOR**の設定ファイル内のパラメータについて説明します。まだ見たことがない場合は、上記の例が表示されることがあります。
 
-**mdtor**設定ファイルは2つのセクションから構成されています。
+**K2HTPMDTOR**設定ファイルは2つのセクションから構成されています。
 
 1. K2HTPMDTOR  
-   このセクションでは、トランザクションプラグインを呼び出す方法を**mdtor**に伝えます。詳細は下記のK2HTPMDTORセクションを参照してください。
+   このセクションでは、トランザクションプラグインを呼び出す方法を**K2HTPMDTOR**に伝えます。詳細は下記のK2HTPMDTORセクションを参照してください。
 2. K2HTPMDTOR_TP  
-   このセクションでは、各トランザクションプラグインのパスを**mdtor**に伝えます。詳細は下記のK2HTPMDTOR_TPセクションを参照してください。
+   このセクションでは、各トランザクションプラグインのパスを**K2HTPMDTOR**に伝えます。詳細は下記のK2HTPMDTOR_TPセクションを参照してください。
 
 #### K2HTPMDTOR  
 
-このセクションのディレクティブは、**mdtor**がトランザクションプラグインを呼び出す方法と、トランザクションプラグインからの結果を処理する方法を決定します。
+このセクションのディレクティブは、**K2HTPMDTOR**がトランザクションプラグインを呼び出す方法と、トランザクションプラグインからの結果を処理する方法を決定します。
 
 |section|directive|value|optional|
 |:--|:--|:--|:--|

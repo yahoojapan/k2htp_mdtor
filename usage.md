@@ -15,9 +15,9 @@ next_string: Build
 
 # Usage
 
-This chapter instructs how to use a **k2htp_mdtor(aka mdtor)** example at the **mdtor** repository on GitHub. Only two steps are enough to run the example code.
+This chapter instructs how to use a **k2htp_mdtor**(aka **K2HTPMDTOR**) example at the **K2HTPMDTOR** repository on GitHub. Only two steps are enough to run the example code.
 
-1. Install **mdtor**
+1. Install **K2HTPMDTOR**
 2. Run the example code
 
 ## Install mdtor
@@ -65,8 +65,8 @@ The following figure shows the simple call flow from test.sh to libk2htpmdtordmy
 
 1. test.sh forks k2htpmdtortest.
 2. The main function in k2htpmdtortest loads [K2HASH](https://k2hash.antpick.ax) as a shared library.
-3. [K2HASH](https://k2hash.antpick.ax) loads **mdtor** as a shared library and pass test.ini to **mdtor**.
-4. **mdtor** reads test.ini and loads transaction plugins.
+3. [K2HASH](https://k2hash.antpick.ax) loads **K2HTPMDTOR** as a shared library and pass test.ini to **K2HTPMDTOR**.
+4. **K2HTPMDTOR** reads test.ini and loads transaction plugins.
 
 ```
 test.sh

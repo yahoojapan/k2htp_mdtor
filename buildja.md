@@ -17,30 +17,30 @@ next_string:
 
 この章は3つの部分から構成されています。
 
-* ローカル開発用に**k2htp_mdtor**（別名**mdtor**）を設定する方法
-* ソースコードから**mdtor**を構築する方法
-* **mdtor**のインストール方法
+* ローカル開発用に**k2htp_mdtor**（以下**K2HTPMDTOR**と呼ぶ）を設定する方法
+* ソースコードから**K2HTPMDTOR**を構築する方法
+* **K2HTPMDTOR**のインストール方法
 
 ## 1. 前提条件をインストールする
 
-**mdtor**は主に、fullock、k2hash、およびchmpxに依存します。それぞれの依存ライブラリとヘッダファイルは**mdtor**をビルドするために必要です。それぞれの依存ライブラリとヘッダファイルをインストールする方法は2つあります。好きなものを選ぶことができます。
+**K2HTPMDTOR**は主に、FULLOCK](https://fullock.antpick.ax/indexja.html)、[K2HASH](https://k2hash.antpick.ax/indexja.html)、および[CHMPX](https://chmpx.antpick.ax/indexja.html)に依存します。それぞれの依存ライブラリとヘッダファイルは**K2HTPMDTOR**をビルドするために必要です。それぞれの依存ライブラリとヘッダファイルをインストールする方法は2つあります。好きなものを選ぶことができます。
 
-* GitHubを使う  
+* [GitHub](https://github.com/yahoojapan)を使う  
   依存ライブラリのソースコードとヘッダファイルをインストールします。あなたはそれぞれの依存ライブラリとヘッダファイルをビルドしてインストールします。
-* packagecloud.ioを使用する  
+* [packagecloud.io](https://packagecloud.io/antpickax/stable/) を使用する  
   依存ライブラリのパッケージとヘッダファイルをインストールします。あなたはそれぞれの依存ライブラリとヘッダファイルをインストールするだけです。ライブラリはすでに構築されています。
 
 ### 1.1. GitHubから各依存ライブラリとヘッダファイルをインストールします。
 
 詳細については以下の文書を読んでください。
 
-* [fullock](https://fullock.antpick.ax/build.html)
-* [k2hash](https://k2hash.antpick.ax/build.html)
-* [chmpx](https://chmpx.antpick.ax/build.html)
+* [FULLOCK](https://fullock.antpick.ax/buildja.html)
+* [K2HASH](https://k2hash.antpick.ax/buildja.html)
+* [CHMPX](https://chmpx.antpick.ax/buildja.html)
 
 ### 1.2. packagecloud.ioから各依存ライブラリとヘッダファイルをインストールします。
 
-このセクションでは、packagecloud.ioから各依存ライブラリとヘッダーファイルをインストールする方法を説明します。
+このセクションでは、[packagecloud.io](https://packagecloud.io/antpickax/stable/)から各依存ライブラリとヘッダーファイルをインストールする方法を説明します。
 
 注：前のセクションで各依存ライブラリとGitHubからのヘッダーファイルをインストールした場合は、このセクションを読み飛ばしてください。
 
@@ -66,7 +66,7 @@ $ sudo yum install autoconf automake gcc gcc-c++ gdb make libtool pkgconfig \
 
 ## 2. GitHubからソースコードを複製する
 
-GitHubから**mdtor**のソースコードをダウンロードしてください。
+GitHubから**K2HTPMDTOR**のソースコードをダウンロードしてください。
 ```bash
 $ sudo apt-get install git -y
 $ git clone https://github.com/yahoojapan/k2htp_mdtor.git
@@ -74,7 +74,7 @@ $ git clone https://github.com/yahoojapan/k2htp_mdtor.git
 
 ## 3. ビルドしてインストールする
 
-以下の手順に従って**mdtor**をビルドしてインストールしてください。 [GNU Automake](https://www.gnu.org/software/automake/)を使って**mdtor**を構築します。
+以下の手順に従って**K2HTPMDTOR**をビルドしてインストールしてください。 [GNU Automake](https://www.gnu.org/software/automake/)を使って**K2HTPMDTOR**を構築します。
 ```bash
 $ cd k2htp_mdtor
 $ sh autogen.sh
@@ -83,7 +83,7 @@ $ make
 $ sudo make install
 ```
 
-**mdtor**のインストールが成功すると、**mdtor**のマニュアルページが表示されます。
+**K2HTPMDTOR**のインストールが成功すると、**K2HTPMDTOR**のマニュアルページが表示されます。
 ```bash
 $ man k2htpmdtor
 ```

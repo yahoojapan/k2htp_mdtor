@@ -15,12 +15,12 @@ next_string: Build
 
 # 使用法
 
-この章ではGitHubの**mdtor**リポジトリにある**k2htp_mdtor**（別名**mdtor**）の例を使用する方法を説明します。サンプルコードを実行するには2つのステップで十分です。
+この章ではGitHubリポジトリにある**k2htp_mdtor**（以下**K2HTPMDTOR**と呼ぶ）の例を使用する方法を説明します。サンプルコードを実行するには2つのステップで十分です。
 
-1. **mdtor**をインストールする
+1. **K2HTPMDTOR**をインストールする
 2. サンプルコードを実行する
 
-## **mdtor**をインストールする
+## **K2HTPMDTOR**をインストールする
 
 このセクションではバイナリパッケージのインストール方法を説明します。ソースコードからバイナリをビルドしたい場合は[Build](https://k2htpmdtor.antpick.ax/buildja.html)ページを読んでください。
 
@@ -63,9 +63,9 @@ RESULT --> SUCCEED
 次の図は、test.shからlibk2htpmdtordmy2.soへの単純な呼び出しの流れを示しています。
 
 1. test.shはk2htpmdtortestをフォークします。
-2. k2htpmdtortestのmain関数は、[K2HASH](https://k2hash.antpick.ax)を共有ライブラリとしてロードします。
-3. [K2HASH](https://k2hash.antpick.ax)は**mdtor**を共有ライブラリとしてロードし、test.iniを**mdtor**に渡します。
-4. **mdtor**はtest.iniを読み込み、トランザクションプラグインをロードします。
+2. k2htpmdtortestのmain関数は、[K2HASH](https://k2hash.antpick.ax/indexja.html)を共有ライブラリとしてロードします。
+3. [K2HASH](https://k2hash.antpick.ax/indexja.html)は**K2HTPMDTOR**を共有ライブラリとしてロードし、test.iniを**K2HTPMDTOR**に渡します。
+4. **K2HTPMDTOR**はtest.iniを読み込み、トランザクションプラグインをロードします。
 
 ```
 test.sh

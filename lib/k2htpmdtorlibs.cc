@@ -3,7 +3,7 @@
  *
  * Copyright 2016 Yahoo Japan Corporation.
  *
- * K2HASH TRANSACTION PLUGIN is programable I/F for processing
+ * K2HASH TRANSACTION PLUGIN is programmable I/F for processing
  * transaction data from modifying K2HASH data.
  *
  * For the full copyright and license information, please view
@@ -32,7 +32,7 @@ MdtorTpLib::MdtorTpLib(const char* path, const char* pconfig) : LibPath(""), Con
 {
 	if(!ISEMPTYSTR(path)){
 		if(!Load(path, pconfig)){
-			ERR_K2HPRN("Failed to load library at conscructor, but continue and you will get something error after this.");
+			ERR_K2HPRN("Failed to load library at constructor, but continue and you will get something error after this.");
 		}
 	}
 }

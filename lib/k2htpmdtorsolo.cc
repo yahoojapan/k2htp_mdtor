@@ -3,7 +3,7 @@
  *
  * Copyright 2016 Yahoo Japan Corporation.
  *
- * K2HASH TRANSACTION PLUGIN is programable I/F for processing
+ * K2HASH TRANSACTION PLUGIN is programmable I/F for processing
  * transaction data from modifying K2HASH data.
  *
  * For the full copyright and license information, please view
@@ -206,7 +206,7 @@ bool K2HtpMdtorSolo::LoadConfigrationIni(const char* filepath, MDTORMODE& mode, 
 	mdtorstrlst_t	allfiles;
 	allfiles.push_back(filepath);
 	if(!K2HtpMdtorSolo::ReadIniFileContents(filepath, linelst, allfiles)){
-		ERR_K2HPRN("Could not load configration file(%s) contents.", filepath);
+		ERR_K2HPRN("Could not load configuration file(%s) contents.", filepath);
 		return false;
 	}
 
@@ -539,7 +539,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORM
 						result = false;
 					}
 				}else{
-					// Found Top Level Keywards, start to loading
+					// Found Top Level Keywords, start to loading
 					if(0 == strcasecmp(CFG_K2HTPMDTOR_SEC_STR, reinterpret_cast<const char*>(yevent.data.scalar.value))){
 						if(is_set_main){
 							MSG_K2HPRN("Got yaml scalar event in loop, but already loading %s. Thus stacks this event.", CFG_K2HTPMDTOR_SEC_STR);
@@ -569,7 +569,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORM
 						}
 
 					}else{
-						MSG_K2HPRN("Got yaml scalar event in loop, but unknown keyward(%s) for me. Thus stacks this event.", reinterpret_cast<const char*>(yevent.data.scalar.value));
+						MSG_K2HPRN("Got yaml scalar event in loop, but unknown keyword(%s) for me. Thus stacks this event.", reinterpret_cast<const char*>(yevent.data.scalar.value));
 						if(!other_stack.add(yevent.type)){
 							result = false;
 						}
@@ -908,7 +908,7 @@ bool K2HtpMdtorSolo::DoTransaction(PBCOM pBinCom)
 		if(false == (result = plib->DoTransaction(handle, pBinCom))){
 			ERR_K2HPRN("Something error occurred in transaction plugin.");
 		}
-		K2HtpMdtorSolo::seed = static_cast<unsigned int>(rand_r(&K2HtpMdtorSolo::seed));	// update seed(do not care for confricting)
+		K2HtpMdtorSolo::seed = static_cast<unsigned int>(rand_r(&K2HtpMdtorSolo::seed));	// update seed(do not care for conflicting)
 
 	}else{
 		// loop

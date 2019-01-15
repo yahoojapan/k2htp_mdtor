@@ -4,7 +4,7 @@
 #
 # Copyright 2016 Yahoo Japan Corporation.
 #
-# K2HASH TRANSACTION PLUGIN is programable I/F for processing
+# K2HASH TRANSACTION PLUGIN is programmable I/F for processing
 # transaction data from modifying K2HASH data.
 #
 # For the full copyright and license information, please view
@@ -125,7 +125,7 @@ echo "====== Start YAML file test ================================"
 ##
 ## Initialize
 ##
-echo "------ Initialize test environemnt for YAML file -----------"
+echo "------ Initialize test environment for YAML file -----------"
 if [ -f ${TEST_LOG_FILE1} ]; then
 	rm -f ${TEST_LOG_FILE1}
 fi
@@ -172,7 +172,7 @@ echo "====== Start JSON file test ================================"
 ##
 ## Initialize
 ##
-echo "------ Initialize test environemnt for JSON file -----------"
+echo "------ Initialize test environment for JSON file -----------"
 if [ -f ${TEST_LOG_FILE1} ]; then
 	rm -f ${TEST_LOG_FILE1}
 fi
@@ -219,7 +219,7 @@ echo "====== Start JSON string test =============================="
 ##
 ## Initialize
 ##
-echo "------ Initialize test environemnt for JSON string ---------"
+echo "------ Initialize test environment for JSON string ---------"
 if [ -f ${TEST_LOG_FILE1} ]; then
 	rm -f ${TEST_LOG_FILE1}
 fi

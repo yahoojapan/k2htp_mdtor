@@ -86,7 +86,7 @@ bool MdtorTpLib::Load(const char* path, const char* pconfig)
 	}
 
 	// check symbol
-	const char*	pError = dlerror();		// call because dlerror result is set NULL.
+	const char*	pError;				// call because dlerror result is set NULL.
 	bool		result = true;
 	if(NULL == (fp_k2h_trans = reinterpret_cast<Tfp_k2h_trans>(dlsym(hDynLib, "k2h_trans"))) && NULL != (pError = dlerror())){
 		ERR_K2HPRN("Failed to load symbol(k2h_trans), error = %s", pError ? pError : "unknown");

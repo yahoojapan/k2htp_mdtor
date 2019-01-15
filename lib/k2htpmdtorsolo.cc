@@ -325,6 +325,8 @@ bool K2HtpMdtorSolo::LoadConfigrationYaml(const char* config, MDTORMODE& mode, m
 		// open configuration file
 		if(NULL == (fp = fopen(config, "r"))){
 			ERR_K2HPRN("Could not open configuration file(%s). errno = %d", config, errno);
+			// cppcheck-suppress unmatchedSuppression
+			// cppcheck-suppress resourceLeak
 			return false;
 		}
 		// set file to parser

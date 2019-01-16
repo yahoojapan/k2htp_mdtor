@@ -4,11 +4,11 @@ k2htp_mdtor
 k2htpmdtor is for K2HASH MULTI TRANSACTION PLUGIN.
 
 ### Overview
-k2htp_mdtor(aka mdtor) is a K2HASH transaction plugin that handles K2HASH transaction logs. Once an application updates a K2HASH file, K2HASH gerenates a transaction log. mdtor receives it and passes it to other K2HASH transaction plugins.
+k2htp_mdtor(aka mdtor) is a K2HASH transaction plugin that handles K2HASH transaction logs. Once an application updates a K2HASH file, K2HASH generates a transaction log. mdtor receives it and passes it to other K2HASH transaction plugins.
 
 The main purpose of mdtor, which loads multiple K2HASH transaction plugins, is to call the arbitrary function defined in them. When calling the each function, mdtor passes K2HASH transaction logs to it as a function's parameter. A common K2HASH transaction plugin loads no other one. We recommend you to use mdtor if you want to use multiple K2HASH transaction plugins.
 
-mdtor is designed to cooprate with subsystems. mdtor can pass a K2HASH transaction log to other transaction plugins simultaneously. This can help subsystems to track updates from an application very quickly.
+mdtor is designed to corporate with subsystems. mdtor can pass a K2HASH transaction log to other transaction plugins simultaneously. This can help subsystems to track updates from an application very quickly.
 
 Read the following documents about mdtor for details.
 

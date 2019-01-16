@@ -95,7 +95,7 @@ bool			K2HtpMdtorSolo::is_init_seed= false;
 //---------------------------------------------------------
 // K2HtpMdtorSolo : Class Methods
 //---------------------------------------------------------
-bool K2HtpMdtorSolo::LoadConfigration(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist)
+bool K2HtpMdtorSolo::LoadConfiguration(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist)
 {
 	// get configuration type without environment
 	CHMCONFTYPE	conftype = check_chmconf_type(config);
@@ -106,9 +106,9 @@ bool K2HtpMdtorSolo::LoadConfigration(const char* config, MDTORMODE& mode, mdtor
 
 	bool	result;
 	if(CHMCONF_TYPE_INI_FILE == conftype){
-		result = K2HtpMdtorSolo::LoadConfigrationIni(config, mode, infolist);
+		result = K2HtpMdtorSolo::LoadConfigurationIni(config, mode, infolist);
 	}else{
-		result = K2HtpMdtorSolo::LoadConfigrationYaml(config, mode, infolist, (CHMCONF_TYPE_JSON_STRING == conftype));
+		result = K2HtpMdtorSolo::LoadConfigurationYaml(config, mode, infolist, (CHMCONF_TYPE_JSON_STRING == conftype));
 	}
 	if(!result){
 		Free_MdtorInfoList(infolist);
@@ -199,7 +199,7 @@ bool K2HtpMdtorSolo::ReadIniFileContents(const char* filepath, mdtorstrlst_t& li
 	return true;
 }
 
-bool K2HtpMdtorSolo::LoadConfigrationIni(const char* filepath, MDTORMODE& mode, mdtorinfolist_t& infolist)
+bool K2HtpMdtorSolo::LoadConfigurationIni(const char* filepath, MDTORMODE& mode, mdtorinfolist_t& infolist)
 {
 	// Load all file contents(with include file)
 	mdtorstrlst_t	linelst;
@@ -311,7 +311,7 @@ bool K2HtpMdtorSolo::LoadConfigrationIni(const char* filepath, MDTORMODE& mode, 
 	return true;
 }
 
-bool K2HtpMdtorSolo::LoadConfigrationYaml(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist, bool is_json_string)
+bool K2HtpMdtorSolo::LoadConfigurationYaml(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist, bool is_json_string)
 {
 	// initialize yaml parser
 	yaml_parser_t	yparser;
@@ -338,7 +338,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYaml(const char* config, MDTORMODE& mode, m
 	}
 
 	// Do parsing
-	bool	result = K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yparser, mode, infolist);
+	bool	result = K2HtpMdtorSolo::LoadConfigurationYamlTopLevel(yparser, mode, infolist);
 
 	yaml_parser_delete(&yparser);
 	if(fp){
@@ -347,7 +347,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYaml(const char* config, MDTORMODE& mode, m
 	return result;
 }
 
-bool K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORMODE& mode, mdtorinfolist_t& infolist)
+bool K2HtpMdtorSolo::LoadConfigurationYamlTopLevel(yaml_parser_t& yparser, MDTORMODE& mode, mdtorinfolist_t& infolist)
 {
 	CHMYamlDataStack	other_stack;
 
@@ -550,7 +550,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORM
 							}
 						}else{
 							// Load K2HTPMDTOR section
-							if(!K2HtpMdtorSolo::LoadConfigrationYamlMain(yparser, mode)){
+							if(!K2HtpMdtorSolo::LoadConfigurationYamlMain(yparser, mode)){
 								ERR_K2HPRN("Something error occured in loading %s section.", CFG_K2HTPMDTOR_SEC_STR);
 								result = false;
 							}
@@ -564,7 +564,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORM
 							}
 						}else{
 							// Load K2HTPMDTOR_TP section
-							if(!K2HtpMdtorSolo::LoadConfigrationYamlLibs(yparser, infolist)){
+							if(!K2HtpMdtorSolo::LoadConfigurationYamlLibs(yparser, infolist)){
 								ERR_K2HPRN("Something error occured in loading %s section.", CFG_K2HTPMDTOR_TP_SEC_STR);
 								result = false;
 							}
@@ -593,7 +593,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORM
 	return result;
 }
 
-bool K2HtpMdtorSolo::LoadConfigrationYamlMain(yaml_parser_t& yparser, MDTORMODE& mode)
+bool K2HtpMdtorSolo::LoadConfigurationYamlMain(yaml_parser_t& yparser, MDTORMODE& mode)
 {
 	// Must start yaml mapping event.
 	yaml_event_t	yevent;
@@ -669,7 +669,7 @@ bool K2HtpMdtorSolo::LoadConfigrationYamlMain(yaml_parser_t& yparser, MDTORMODE&
 	return result;
 }
 
-bool K2HtpMdtorSolo::LoadConfigrationYamlLibs(yaml_parser_t& yparser, mdtorinfolist_t& infolist)
+bool K2HtpMdtorSolo::LoadConfigurationYamlLibs(yaml_parser_t& yparser, mdtorinfolist_t& infolist)
 {
 	// Must start yaml sequence(for mapping array) -> mapping event.
 	yaml_event_t	yevent;
@@ -816,7 +816,7 @@ bool K2HtpMdtorSolo::Load(k2h_h hk2h, const char* pconfig)
 
 	// load configuration
 	mdtorinfolist_t	infolist;
-	if(!K2HtpMdtorSolo::LoadConfigration(pconfig, mode, infolist)){
+	if(!K2HtpMdtorSolo::LoadConfiguration(pconfig, mode, infolist)){
 		ERR_K2HPRN("Failed to load configuration.");
 		return false;
 	}

@@ -71,12 +71,12 @@ class K2HtpMdtorSolo
 	protected:
 		static bool SetMdtorInfoUtil(PMDTORINFO& pLibinfo, mdtorinfolist_t& infolist);
 		static bool ReadIniFileContents(const char* filepath, mdtorstrlst_t& linelst, mdtorstrlst_t& allfiles);
-		static bool LoadConfigration(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist);
-		static bool LoadConfigrationIni(const char* filepath, MDTORMODE& mode, mdtorinfolist_t& infolist);
-		static bool LoadConfigrationYaml(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist, bool is_json_string);
-		static bool LoadConfigrationYamlTopLevel(yaml_parser_t& yparser, MDTORMODE& mode, mdtorinfolist_t& infolist);
-		static bool LoadConfigrationYamlMain(yaml_parser_t& yparser, MDTORMODE& mode);
-		static bool LoadConfigrationYamlLibs(yaml_parser_t& yparser, mdtorinfolist_t& infolist);
+		static bool LoadConfiguration(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist);
+		static bool LoadConfigurationIni(const char* filepath, MDTORMODE& mode, mdtorinfolist_t& infolist);
+		static bool LoadConfigurationYaml(const char* config, MDTORMODE& mode, mdtorinfolist_t& infolist, bool is_json_string);
+		static bool LoadConfigurationYamlTopLevel(yaml_parser_t& yparser, MDTORMODE& mode, mdtorinfolist_t& infolist);
+		static bool LoadConfigurationYamlMain(yaml_parser_t& yparser, MDTORMODE& mode);
+		static bool LoadConfigurationYamlLibs(yaml_parser_t& yparser, mdtorinfolist_t& infolist);
 
 	public:
 		K2HtpMdtorSolo();

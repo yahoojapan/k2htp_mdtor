@@ -13,11 +13,11 @@ k2htp_mdtor
 
 ### Overview
 
-**k2htp_mdtor(aka mdtor)** is a [K2HASH](https://k2hash.antpick.ax) transaction plugin that handles [K2HASH](https://k2hash.antpick.ax) transaction logs. Once an application updates a [K2HASH](https://k2hash.antpick.ax) file, [K2HASH](https://k2hash.antpick.ax) gerenates a transaction log. **mdtor** receives it and passes it to other [K2HASH](https://k2hash.antpick.ax) transaction plugins.
+**k2htp_mdtor(aka mdtor)** is a [K2HASH](https://k2hash.antpick.ax) transaction plugin that handles [K2HASH](https://k2hash.antpick.ax) transaction logs. Once an application updates a [K2HASH](https://k2hash.antpick.ax) file, [K2HASH](https://k2hash.antpick.ax) generates a transaction log. **mdtor** receives it and passes it to other [K2HASH](https://k2hash.antpick.ax) transaction plugins.
 
 The main purpose of **mdtor**, which loads multiple [K2HASH](https://k2hash.antpick.ax) transaction plugins, is to call the arbitrary function defined in them. When calling the each function, **mdtor** passes [K2HASH](https://k2hash.antpick.ax) transaction logs to it as a function's parameter. A common [K2HASH](https://k2hash.antpick.ax) transaction plugin loads no other one. We recommend you to use **mdtor** if you want to use multiple [K2HASH](https://k2hash.antpick.ax) transaction plugins. 
 
-**mdtor** is designed to cooprate with subsystems. **mdtor** can pass a [K2HASH](https://k2hash.antpick.ax) transaction log to other transaction plugins simultaneously. This can help subsystems to track updates from an application very quickly.
+**mdtor** is designed to corporate with subsystems. **mdtor** can pass a [K2HASH](https://k2hash.antpick.ax) transaction log to other transaction plugins simultaneously. This can help subsystems to track updates from an application very quickly.
 
 Read the following documents about **mdtor** for details.
 

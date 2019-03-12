@@ -90,7 +90,7 @@ test.sh
 ...
 ```
 
-The sources and the settings above are available at GitHub's:
+The sources and the settings above are available at GitHub.com:
 * [k2htpmdtortest.cc](https://github.com/yahoojapan/k2htp_mdtor/blob/master/tests/k2htpmdtortest.cc)
 * [test.ini](https://github.com/yahoojapan/k2htp_mdtor/blob/master/tests/test.ini)
 * [k2htpmdtordmy.cc](https://github.com/yahoojapan/k2htp_mdtor/blob/master/tests/k2htpmdtordmy.cc)

@@ -11,13 +11,15 @@ arrow_link_usage: <a href="usageja.html" class="link-title"><span class="arrow-b
 arrow_link_build: <a href="buildja.html" class="link-title"><span class="arrow-base link-arrow-right"></span>Build</a>
 ---
 
-# k2htp_mdtor
+# K2HTPMDTOR
 
 **k2htp_mdtor**（以下**K2HTPMDTOR**と呼ぶ）は、[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションログを処理する[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインです。 アプリケーションが[K2HASH](https://k2hash.antpick.ax/indexja.html)ファイルを更新すると、[K2HASH](https://k2hash.antpick.ax/indexja.html)はトランザクションログを生成します。 **K2HTPMDTOR**はトランザクションログを受け取り、トランザクションログを他の[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインに渡します。
 
 **K2HTPMDTOR**の目的は、複数の[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインをロードし、1つのトランザクションに対して複数の[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインに定義された特定の関数を同時に実行することです。[K2HASH](https://k2hash.antpick.ax/indexja.html)に登録できる[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインは、1つのみロードでき、プラグインに定義された特定の関数を実行できます。複数の[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインを使用したい場合は、**K2HTPMDTOR**を使用してください。
 
-**K2HTPMDTOR**はサブシステムと連携するように設計されています。 **K2HTPMDTOR**は[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションログを他のトランザクションプラグインに同時に渡すことができますので、サブシステムがアプリケーションからの更新を非常に迅速に追跡するのに役立ちます。
+**K2HTPMDTOR**はサブシステムと連携するように設計されています。 **K2HTPMDTOR**は[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションログを他のトランザクションプラグインに同時に渡すことができますので、サブシステムがアプリケーションからの更新を非常に迅速に追跡するのに役立ちます。  
+
+![K2HTPMDTOR](images/top_k2htpmdtor.png)
 
 詳細は**K2HTPMDTOR**に関する以下の文書を読んでください。
 

@@ -11,7 +11,7 @@ arrow_link_usage: <a href="usageja.html" class="link-title"><span class="arrow-b
 arrow_link_build: <a href="buildja.html" class="link-title"><span class="arrow-base link-arrow-right"></span>Build</a>
 ---
 
-# k2htp_mdtor
+# K2HTPMDTOR
 
 **k2htp_mdtor**（以下**K2HTPMDTOR**と呼ぶ）は、[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションログを処理する[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインです。 アプリケーションが[K2HASH](https://k2hash.antpick.ax/indexja.html)ファイルを更新すると、[K2HASH](https://k2hash.antpick.ax/indexja.html)はトランザクションログを生成します。 **K2HTPMDTOR**はトランザクションログを受け取り、トランザクションログを他の[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションプラグインに渡します。
 

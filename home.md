@@ -24,7 +24,7 @@ The following figure shows a data flow when an application updates a [K2HASH](ht
 2. [K2HASH](https://k2hash.antpick.ax) generates a transaction log and invokes a ****K2HTPMDTOR**(aka mdtor)**'s method with the log.
 3. **K2HTPMDTOR** passes the log to transaction plugins.
 
-![Overview](images/**K2HTPMDTOR**_overview.png)
+![Overview](images/k2htpmdtor_overview.png)
 
 [K2HASH](https://k2hash.antpick.ax) transaction plugins process a transaction log simultaneously or in sequence,  which is determined by **K2HTPMDTOR** settings.
 **K2HTPMDTOR** can stop processing [K2HASH](https://k2hash.antpick.ax) transaction plugins if an error occurs in a prior plugin in a sequence, which is also determined by its settings. Read [Details](details.html) page about the settings.

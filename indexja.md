@@ -1,7 +1,7 @@
 ---
 layout: default
 language: en-us
-title: k2htp_mdtor
+title: K2HTPMDTOR
 short_desc: K2Hash Transaction Plugin for Multiple Distributed Transaction Of Repeater
 lang_opp_file: index.html
 lang_opp_word: To English

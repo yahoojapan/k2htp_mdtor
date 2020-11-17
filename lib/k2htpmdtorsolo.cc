@@ -60,12 +60,13 @@ using namespace std;
 //---------------------------------------------------------
 inline void Free_MdtorInfoList(mdtorinfolist_t& infolist)
 {
-	for(mdtorinfolist_t::iterator iter = infolist.begin(); iter != infolist.end(); iter = infolist.erase(iter)){
-		PMDTORINFO	pLibInfo = *iter;
+	for(mdtorinfolist_t::iterator iter = infolist.begin(); iter != infolist.end(); ++iter){
+		PMDTORINFO	pLibInfo = (*iter);
 		if(pLibInfo){
 			K2H_Delete(pLibInfo);
 		}
 	}
+	infolist.clear();
 }
 
 inline bool Check_MdtorInfoList(const mdtorinfolist_t& infolist)
@@ -874,8 +875,8 @@ bool K2HtpMdtorSolo::Unload(void)
 	}
 
 	// unload all transaction plugin libs
-	for(mdtortplibs_t::iterator iter = tplibs.begin(); iter != tplibs.end(); iter = tplibs.erase(iter)){
-		MdtorTpLib*	plib = *iter;
+	for(mdtortplibs_t::iterator iter = tplibs.begin(); iter != tplibs.end(); ++iter){
+		MdtorTpLib*	plib = (*iter);
 		if(plib){
 			// do disable
 			if(!plib->Disable(handle)){
@@ -889,6 +890,7 @@ bool K2HtpMdtorSolo::Unload(void)
 			K2H_Delete(plib);
 		}
 	}
+	tplibs.clear();
 	return true;
 }
 
@@ -915,8 +917,8 @@ bool K2HtpMdtorSolo::DoTransaction(PBCOM pBinCom)
 	}else{
 		// loop
 		int	success_count = 0;
-		for(mdtortplibs_t::iterator iter = tplibs.begin(); iter != tplibs.end(); iter = tplibs.erase(iter)){
-			MdtorTpLib*	plib = *iter;
+		for(mdtortplibs_t::iterator iter = tplibs.begin(); iter != tplibs.end(); ++iter){
+			MdtorTpLib*	plib = (*iter);
 			if(plib){
 				if(false == (result = plib->DoTransaction(handle, pBinCom))){
 					//MSG_K2HPRN("Something error occurred in transaction plugin.");
@@ -937,6 +939,7 @@ bool K2HtpMdtorSolo::DoTransaction(PBCOM pBinCom)
 				}
 			}
 		}
+		tplibs.clear();
 		if(0 < success_count){
 			result = true;
 		}

@@ -1,6 +1,6 @@
 k2htp_mdtor
 ----------
-[![Build Status](https://travis-ci.org/yahoojapan/k2htp_mdtor.svg?branch=master)](https://travis-ci.org/yahoojapan/k2htp_mdtor)
+[![C/C++ AntPickax CI](https://github.com/yahoojapan/k2htp_mdtor/workflows/C/C++%20AntPickax%20CI/badge.svg)](https://github.com/yahoojapan/k2htp_mdtor/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/yahoojapan/k2htp_mdtor/master/COPYING)
 [![GitHub forks](https://img.shields.io/github/forks/yahoojapan/k2htp_mdtor.svg)](https://github.com/yahoojapan/k2htp_mdtor/network)
 [![GitHub stars](https://img.shields.io/github/stars/yahoojapan/k2htp_mdtor.svg)](https://github.com/yahoojapan/k2htp_mdtor/stargazers)

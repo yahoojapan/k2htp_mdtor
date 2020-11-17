@@ -1,3 +1,10 @@
+k2htpmdtor (1.0.3) trusty; urgency=low
+
+  * Switched Travis CI to Github actions and extended supported OS - #14
+  * Fixed bugs detected by cppcheck - #13
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Tue, 17 Nov 2020 15:28:13 +0900
+
 k2htpmdtor (1.0.2) trusty; urgency=low
 
   * Updated README.md etc - #10

@@ -24,7 +24,7 @@ next_string: Build
 
 このセクションではバイナリパッケージのインストール方法を説明します。ソースコードからバイナリをビルドしたい場合は[Build](https://k2htpmdtor.antpick.ax/buildja.html)ページを読んでください。
 
-DebianStretchまたはUbuntu（Bionic Beaver）をお使いの場合は、以下の手順に従ってください。
+最近のDebianベースLinuxの利用者は、以下の手順に従ってください。
 ```bash
 $ sudo apt-get update -y
 $ sudo apt-get install curl -y
@@ -33,7 +33,16 @@ $ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.d
 $ sudo apt-get install k2htpmdtor
 ```
 
-Fedora28またはCentOS7.x（6.x）ユーザーの場合は、以下の手順に従ってください。
+Fedoraの利用者は、以下の手順に従ってください。
+```bash
+$ sudo dnf makecache
+$ sudo dnf install curl -y
+$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh \
+    | sudo bash
+$ sudo dnf install k2htpmdtor -y
+```
+
+その他最近のRPMベースのLinuxの場合は、以下の手順に従ってください。
 ```bash
 $ sudo yum makecache
 $ sudo yum install curl -y

@@ -24,7 +24,7 @@ This chapter instructs how to use a **k2htp_mdtor**(aka **K2HTPMDTOR**) example 
 
 This section instructs how to install binary packages. Read the [Build](https://k2htpmdtor.antpick.ax/build.html) page if you want to build the binary from the source code.
 
-For DebianStretch or Ubuntu(Bionic Beaver) users, follow the steps below:
+For recent Debian-based Linux distributions users, follow the steps below:
 ```bash
 $ sudo apt-get update -y
 $ sudo apt-get install curl -y
@@ -33,7 +33,16 @@ $ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.d
 $ sudo apt-get install k2htpmdtor
 ```
 
-For Fedora28 or CentOS7.x(6.x) users, follow the steps below:
+For users who use supported Fedora other than latest version, follow the steps below:
+```bash
+$ sudo dnf makecache
+$ sudo dnf install curl -y
+$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh \
+    | sudo bash
+$ sudo dnf install k2htpmdtor -y
+```
+
+For other recent RPM-based Linux distributions users, follow the steps below:
 ```bash
 $ sudo yum makecache
 $ sudo yum install curl -y

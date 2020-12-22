@@ -65,9 +65,9 @@ This section describes parameters in **K2HTPMDTOR**'s configuration file. You mi
 A **K2HTPMDTOR** configuration file consists of two sections:
 
 1. **K2HTPMDTOR**  
-   In this section, you tell **K2HTPMDTOR** the way to call transaction plugins. See ****K2HTPMDTOR**** section below for details.
+   In this section, you tell **K2HTPMDTOR** the way to call transaction plugins. See **K2HTPMDTOR** section below for details.
 2. **K2HTPMDTOR**_TP  
-   In this section, you tell **K2HTPMDTOR** each transaction plugin's path. See ****K2HTPMDTOR**_TP** section below for details.
+   In this section, you tell **K2HTPMDTOR** each transaction plugin's path. See **K2HTPMDTOR**_TP section below for details.
 
 #### **K2HTPMDTOR**  
 A directive in this section determines how **K2HTPMDTOR** invokes transaction plugins and how it processes results from them.

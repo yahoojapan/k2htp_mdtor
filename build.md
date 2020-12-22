@@ -97,5 +97,5 @@ $ sudo make install
 
 After successfully installing **K2HTPMDTOR**, you will see the manual page for **K2HTPMDTOR**:
 ```bash
-$ man **K2HTPMDTOR**
+$ man k2htpmdtor
 ```

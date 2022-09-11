@@ -16,15 +16,13 @@
 #
 
 ##############################################################
-
-##############################################################
 ## library path & programs path
 ##
 CTPTESTSDIR=`dirname $0`
 if [ "X${SRCTOP}" = "X" ]; then
 	SRCTOP=`cd ${CTPTESTSDIR}/..; pwd`
 else
-	CTPTESTSDIR=`cd -P ${SRTOP}/tests; pwd`
+	CTPTESTSDIR=`cd -P ${SRCTOP}/tests; pwd`
 fi
 CTPLIBDIR=`cd -P ${SRCTOP}/lib; pwd`
 cd ${CTPTESTSDIR}
@@ -54,7 +52,6 @@ elif [ -f ${CTPLIBDIR}/libk2htpmdtor.so.1 ]; then
 else
 	echo "ERROR: there is no libk2htpmdtor.so.* binary"
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 
@@ -96,7 +93,6 @@ ${CTPTESTBIN} ${DTORLIBSO} ${CTPTESTSDIR}/test.ini
 if [ $? -ne 0 ]; then
 	echo "ERROR: test program returned false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -111,7 +107,6 @@ SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
 if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
 	echo "ERROR: test result is false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -143,7 +138,6 @@ ${CTPTESTBIN} ${DTORLIBSO} ${CTPTESTSDIR}/test.yaml
 if [ $? -ne 0 ]; then
 	echo "ERROR: test program returned false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -158,7 +152,6 @@ SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
 if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
 	echo "ERROR: test result is false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -190,7 +183,6 @@ ${CTPTESTBIN} ${DTORLIBSO} ${CTPTESTSDIR}/test.json
 if [ $? -ne 0 ]; then
 	echo "ERROR: test program returned false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -205,7 +197,6 @@ SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
 if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
 	echo "ERROR: test result is false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -231,7 +222,6 @@ JSON_STRING_DATA=`grep 'JSON_STRING=' ${CTPTESTSDIR}/test_json_string.data 2>/de
 if [ $? -ne 0 ]; then
 	echo "ERROR: failed initializing for JSON string data."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -245,7 +235,6 @@ ${CTPTESTBIN} ${DTORLIBSO} "${JSON_STRING_DATA}"
 if [ $? -ne 0 ]; then
 	echo "ERROR: test program returned false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -260,7 +249,6 @@ SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
 if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
 	echo "ERROR: test result is false."
 	echo "RESULT --> FAILED"
-
 	exit 1
 fi
 echo "RESULT --> SUCCEED"
@@ -288,8 +276,6 @@ echo "====== Finish all =========================================="
 echo ""
 echo "RESULT --> SUCCEED"
 echo ""
-
-
 
 exit 0
 

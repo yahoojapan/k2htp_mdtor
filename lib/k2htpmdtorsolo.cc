@@ -156,7 +156,7 @@ bool K2HtpMdtorSolo::ReadIniFileContents(const char* filepath, mdtorstrlst_t& li
 		// cut after comment word
 		string::size_type	pos;
 		if(string::npos != (pos = line.find(INICFG_COMMENT_CHAR))){
-			line = line.substr(0, pos);
+			line.resize(pos);
 		}
 
 		// trim

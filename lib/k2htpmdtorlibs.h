@@ -41,7 +41,7 @@ class MdtorTpLib
 		bool Control(k2h_h handle, bool enable);
 
 	public:
-		MdtorTpLib(const char* path = NULL, const char* pconfig = NULL);
+		explicit MdtorTpLib(const char* path = NULL, const char* pconfig = NULL);
 		virtual ~MdtorTpLib();
 
 		bool IsLoaded(void) const { return (NULL != hDynLib); }

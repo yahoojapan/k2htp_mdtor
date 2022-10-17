@@ -1,23 +1,23 @@
-k2htpmdtor (1.0.4) trusty; urgency=low
+k2htpmdtor (1.0.4) unstable; urgency=low
 
   * Fixed centos8 build and removed centos6 build - #16
 
  -- Takeshi Nakatani <ggtakec@gmail.com>  Thu, 17 Dec 2020 14:04:41 +0900
 
-k2htpmdtor (1.0.3) trusty; urgency=low
+k2htpmdtor (1.0.3) unstable; urgency=low
 
   * Switched Travis CI to Github actions and extended supported OS - #14
   * Fixed bugs detected by cppcheck - #13
 
  -- Takeshi Nakatani <ggtakec@gmail.com>  Tue, 17 Nov 2020 15:28:13 +0900
 
-k2htpmdtor (1.0.2) trusty; urgency=low
+k2htpmdtor (1.0.2) unstable; urgency=low
 
   * Updated README.md etc - #10
 
  -- Takeshi Nakatani <ggtakec@gmail.com>  Thu, 17 Jan 2019 11:53:38 +0900
 
-k2htpmdtor (1.0.1) trusty; urgency=low
+k2htpmdtor (1.0.1) unstable; urgency=low
 
   * Fixed misspelling, and etc - #6
   * Added check using cppcheck - #5
@@ -26,7 +26,7 @@ k2htpmdtor (1.0.1) trusty; urgency=low
 
  -- Takeshi Nakatani <ggtakec@gmail.com>  Thu, 17 Jan 2019 11:53:38 +0900
 
-k2htpmdtor (1.0.0) trusty; urgency=low
+k2htpmdtor (1.0.0) unstable; urgency=low
 
   * Initial Release on GitHub.
 

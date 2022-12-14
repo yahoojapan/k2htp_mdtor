@@ -79,7 +79,6 @@ bool k2h_trans(k2h_h handle, PBCOM pBinCom)
 	// open log file(default stdout)
 	FILE*	fp = stdout;
 	if(GetLogFile().empty() || NULL == (fp = fopen(GetLogFile().c_str(), "a+"))){
-		// cppcheck-suppress unmatchedSuppression
 		// cppcheck-suppress resourceLeak
 		fp = stdout;
 	}

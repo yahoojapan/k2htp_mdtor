@@ -15,272 +15,299 @@
 # REVISION:
 #
 
-##############################################################
-## library path & programs path
-##
-CTPTESTSDIR=`dirname $0`
-if [ "X${SRCTOP}" = "X" ]; then
-	SRCTOP=`cd ${CTPTESTSDIR}/..; pwd`
-else
-	CTPTESTSDIR=`cd -P ${SRCTOP}/tests; pwd`
-fi
-CTPLIBDIR=`cd -P ${SRCTOP}/lib; pwd`
-cd ${CTPTESTSDIR}
+#--------------------------------------------------------------
+# Common Variables
+#--------------------------------------------------------------
+#PRGNAME=$(basename "${0}")
+SCRIPTDIR=$(dirname "${0}")
+SCRIPTDIR=$(cd "${SCRIPTDIR}" || exit 1; pwd)
+SRCTOP=$(cd "${SCRIPTDIR}/.." || exit 1; pwd)
 
-if [ "X${OBJDIR}" = "X" ]; then
-	LD_LIBRARY_PATH="${CTPLIBDIR}/.libs:${CTPTESTSDIR}/.libs"
-else
-	LD_LIBRARY_PATH="${CTPLIBDIR}/${OBJDIR}:${CTPTESTSDIR}/${OBJDIR}"
-fi
+#
+# Directories / Files
+#
+#SRCDIR="${SRCTOP}/src"
+LIBDIR="${SRCTOP}/lib"
+TESTDIR="${SRCTOP}/tests"
+LIBOBJDIR="${LIBDIR}/.libs"
+TESTOBJDIR="${TESTDIR}/.libs"
+
+CTPTESTBIN="${TESTDIR}/k2htpmdtortest"
+DTORLIBSO="${LIBOBJDIR}/libk2htpmdtor.so.1"
+
+TEST_LOG_FILE1="/tmp/libk2htpmdtordmy.log"
+TEST_LOG_FILE2="/tmp/libk2htpmdtordmy2.log"
+
+CFG_TEST_INI_FILE="${TESTDIR}/test.ini"
+CFG_TEST_YAML_FILE="${TESTDIR}/test.yaml"
+CFG_TEST_JSON_FILE="${TESTDIR}/test.json"
+CFG_TEST_JSON_STRING_DATA="${TESTDIR}/test_json_string.data"
+
+#
+# LD_LIBRARY_PATH
+#
+LD_LIBRARY_PATH="${LIBOBJDIR}:${TESTOBJDIR}"
 export LD_LIBRARY_PATH
 
+#--------------------------------------------------------------
+# Variables and Utility functions
+#--------------------------------------------------------------
 #
-# libk2htpmdtor.so.* path
+# Escape sequence
 #
-if [ -f ${CTPLIBDIR}/${OBJDIR}/libk2htpmdtor.so.0 ]; then
-	DTORLIBSO=${CTPLIBDIR}/${OBJDIR}/libk2htpmdtor.so.0
-elif [ -f ${CTPLIBDIR}/.libs/libk2htpmdtor.so.0 ]; then
-	DTORLIBSO=${CTPLIBDIR}/.libs/libk2htpmdtor.so.0
-elif [ -f ${CTPLIBDIR}/libk2htpmdtor.so.0 ]; then
-	DTORLIBSO=${CTPLIBDIR}/libk2htpmdtor.so.0
-elif [ -f ${CTPLIBDIR}/${OBJDIR}/libk2htpmdtor.so.1 ]; then
-	DTORLIBSO=${CTPLIBDIR}/${OBJDIR}/libk2htpmdtor.so.1
-elif [ -f ${CTPLIBDIR}/.libs/libk2htpmdtor.so.1 ]; then
-	DTORLIBSO=${CTPLIBDIR}/.libs/libk2htpmdtor.so.1
-elif [ -f ${CTPLIBDIR}/libk2htpmdtor.so.1 ]; then
-	DTORLIBSO=${CTPLIBDIR}/libk2htpmdtor.so.1
+if [ -t 1 ]; then
+	CBLD=$(printf '\033[1m')
+	CREV=$(printf '\033[7m')
+	CRED=$(printf '\033[31m')
+	CYEL=$(printf '\033[33m')
+	CGRN=$(printf '\033[32m')
+	CDEF=$(printf '\033[0m')
 else
-	echo "ERROR: there is no libk2htpmdtor.so.* binary"
-	echo "RESULT --> FAILED"
-	exit 1
+	CBLD=""
+	CREV=""
+	CRED=""
+	CYEL=""
+	CGRN=""
+	CDEF=""
 fi
+
+#--------------------------------------------------------------
+# Message functions
+#--------------------------------------------------------------
+PRNTITLE()
+{
+	echo ""
+	echo "${CGRN}---------------------------------------------------------------------${CDEF}"
+	echo "${CGRN}${CREV}[TITLE]${CDEF} ${CGRN}$*${CDEF}"
+	echo "${CGRN}---------------------------------------------------------------------${CDEF}"
+}
+
+PRNERR()
+{
+	echo "${CBLD}${CRED}[ERROR]${CDEF} ${CRED}$*${CDEF}"
+}
+
+PRNWARN()
+{
+	echo "${CYEL}${CREV}[WARNING]${CDEF} $*"
+}
+
+PRNMSG()
+{
+	echo "${CYEL}${CREV}[MSG]${CDEF} ${CYEL}$*${CDEF}"
+}
+
+PRNINFO()
+{
+	echo "${CREV}[INFO]${CDEF} $*"
+}
+
+PRNSUCCEED()
+{
+	echo "${CREV}[SUCCEED]${CDEF} $*"
+}
+
+#==============================================================
+# Main
+#==============================================================
+#
+# Change current
+#
+cd "${TESTDIR}" || exit 1
+
+#--------------------------------------------------------------
+# Test by INI file
+#--------------------------------------------------------------
+PRNTITLE "TEST INI FILE"
+
+PRNMSG "Initialize test environment for INI file"
+
+if [ -f "${TEST_LOG_FILE1}" ]; then
+	rm -f "${TEST_LOG_FILE1}"
+fi
+if [ -f "${TEST_LOG_FILE2}" ]; then
+	rm -f "${TEST_LOG_FILE2}"
+fi
+PRNINFO "SUCCEED : Initialize test environment for INI file"
 
 #
-# log files
+# Run
 #
-TEST_LOG_FILE1=/tmp/libk2htpmdtordmy.log
-TEST_LOG_FILE2=/tmp/libk2htpmdtordmy2.log
+PRNMSG "Run test for INI file"
+
+if ! "${CTPTESTBIN}" "${DTORLIBSO}" "${CFG_TEST_INI_FILE}"; then
+	PRNERR "FAILED : test for INI file"
+	exit 1
+fi
+PRNSUCCEED "SUCCEED : Test for INI file"
 
 #
-# test program path
+# Check result
 #
-CTPTESTBIN=${CTPTESTSDIR}/${OBJDIR}/k2htpmdtortest
+PRNMSG "Check result for INI file"
 
-##############################################################
-## Test by INI file
-##
-echo ""
-echo "====== Start INI file test ================================="
+SED_LOG_FILE1=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE1}" 2> /dev/null)
+SED_LOG_FILE2=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE2}" 2> /dev/null)
 
-##
-## Initialize
-##
-echo "------ Initialize test environment for INI file ------------"
-if [ -f ${TEST_LOG_FILE1} ]; then
-	rm -f ${TEST_LOG_FILE1}
-fi
-if [ -f ${TEST_LOG_FILE2} ]; then
-	rm -f ${TEST_LOG_FILE2}
-fi
-echo "RESULT --> SUCCEED"
-
-##
-## Run test
-##
-echo "------ Start testing for INI file --------------------------"
-${CTPTESTBIN} ${DTORLIBSO} ${CTPTESTSDIR}/test.ini
-
-if [ $? -ne 0 ]; then
-	echo "ERROR: test program returned false."
-	echo "RESULT --> FAILED"
+if [ -z "${SED_LOG_FILE1}" ] || [ -z "${SED_LOG_FILE2}" ] || [ "${SED_LOG_FILE1}" != "${SED_LOG_FILE2}" ]; then
+	PRNERR "FAILED : Check result for INI file"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNINFO "SUCCEED : Check result for INI file"
 
-##
-## Check result
-##
-echo "------ Check result for INI file ---------------------------"
-SED_LOG_FILE1=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE1} 2> /dev/null`
-SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
+PRNSUCCEED "TEST INI FILE"
 
-if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
-	echo "ERROR: test result is false."
-	echo "RESULT --> FAILED"
+#--------------------------------------------------------------
+# Test by YAML file
+#--------------------------------------------------------------
+PRNTITLE "TEST YAML FILE"
+
+PRNMSG "Initialize test environment for YAML file"
+
+if [ -f "${TEST_LOG_FILE1}" ]; then
+	rm -f "${TEST_LOG_FILE1}"
+fi
+if [ -f "${TEST_LOG_FILE2}" ]; then
+	rm -f "${TEST_LOG_FILE2}"
+fi
+PRNINFO "SUCCEED : Initialize test environment for YAML file"
+
+#
+# Run
+#
+PRNMSG "Run test for YAML file"
+
+if ! "${CTPTESTBIN}" "${DTORLIBSO}" "${CFG_TEST_YAML_FILE}"; then
+	PRNERR "FAILED : test for YAML file"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNSUCCEED "SUCCEED : Test for YAML file"
 
-##############################################################
-## Test by YAML file
-##
-echo ""
-echo "====== Start YAML file test ================================"
+#
+# Check result
+#
+PRNMSG "Check result for YAML file"
 
-##
-## Initialize
-##
-echo "------ Initialize test environment for YAML file -----------"
-if [ -f ${TEST_LOG_FILE1} ]; then
-	rm -f ${TEST_LOG_FILE1}
-fi
-if [ -f ${TEST_LOG_FILE2} ]; then
-	rm -f ${TEST_LOG_FILE2}
-fi
-echo "RESULT --> SUCCEED"
+SED_LOG_FILE1=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE1}" 2> /dev/null)
+SED_LOG_FILE2=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE2}" 2> /dev/null)
 
-##
-## Run test
-##
-echo "------ Start testing for YAML file -------------------------"
-${CTPTESTBIN} ${DTORLIBSO} ${CTPTESTSDIR}/test.yaml
-
-if [ $? -ne 0 ]; then
-	echo "ERROR: test program returned false."
-	echo "RESULT --> FAILED"
+if [ -z "${SED_LOG_FILE1}" ] || [ -z "${SED_LOG_FILE2}" ] || [ "${SED_LOG_FILE1}" != "${SED_LOG_FILE2}" ]; then
+	PRNERR "FAILED : Check result for YAML file"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNINFO "SUCCEED : Check result for YAML file"
 
-##
-## Check result
-##
-echo "------ Check result for YAML file --------------------------"
-SED_LOG_FILE1=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE1} 2> /dev/null`
-SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
+PRNSUCCEED "TEST YAML FILE"
 
-if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
-	echo "ERROR: test result is false."
-	echo "RESULT --> FAILED"
+#--------------------------------------------------------------
+# Test by JSON file
+#--------------------------------------------------------------
+PRNTITLE "TEST JSON FILE"
+
+PRNMSG "Initialize test environment for JSON file"
+
+if [ -f "${TEST_LOG_FILE1}" ]; then
+	rm -f "${TEST_LOG_FILE1}"
+fi
+if [ -f "${TEST_LOG_FILE2}" ]; then
+	rm -f "${TEST_LOG_FILE2}"
+fi
+PRNINFO "SUCCEED : Initialize test environment for JSON file"
+
+#
+# Run
+#
+PRNMSG "Run test for JSON file"
+
+if ! "${CTPTESTBIN}" "${DTORLIBSO}" "${CFG_TEST_JSON_FILE}"; then
+	PRNERR "FAILED : test for JSON file"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNSUCCEED "SUCCEED : Test for JSON file"
 
-##############################################################
-## Test by JSON file
-##
-echo ""
-echo "====== Start JSON file test ================================"
+#
+# Check result
+#
+PRNMSG "Check result for JSON file"
 
-##
-## Initialize
-##
-echo "------ Initialize test environment for JSON file -----------"
-if [ -f ${TEST_LOG_FILE1} ]; then
-	rm -f ${TEST_LOG_FILE1}
-fi
-if [ -f ${TEST_LOG_FILE2} ]; then
-	rm -f ${TEST_LOG_FILE2}
-fi
-echo "RESULT --> SUCCEED"
+SED_LOG_FILE1=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE1}" 2> /dev/null)
+SED_LOG_FILE2=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE2}" 2> /dev/null)
 
-##
-## Run test
-##
-echo "------ Start testing for JSON file -------------------------"
-${CTPTESTBIN} ${DTORLIBSO} ${CTPTESTSDIR}/test.json
-
-if [ $? -ne 0 ]; then
-	echo "ERROR: test program returned false."
-	echo "RESULT --> FAILED"
+if [ -z "${SED_LOG_FILE1}" ] || [ -z "${SED_LOG_FILE2}" ] || [ "${SED_LOG_FILE1}" != "${SED_LOG_FILE2}" ]; then
+	PRNERR "FAILED : Check result for JSON file"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNINFO "SUCCEED : Check result for JSON file"
 
-##
-## Check result
-##
-echo "------ Check result for JSON file --------------------------"
-SED_LOG_FILE1=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE1} 2> /dev/null`
-SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
+PRNSUCCEED "TEST JSON FILE"
 
-if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
-	echo "ERROR: test result is false."
-	echo "RESULT --> FAILED"
+#--------------------------------------------------------------
+# Test by JSON string
+#--------------------------------------------------------------
+PRNTITLE "TEST JSON STRING"
+
+PRNMSG "Initialize test environment for JSON string"
+
+if [ -f "${TEST_LOG_FILE1}" ]; then
+	rm -f "${TEST_LOG_FILE1}"
+fi
+if [ -f "${TEST_LOG_FILE2}" ]; then
+	rm -f "${TEST_LOG_FILE2}"
+fi
+if ! JSON_STRING_DATA=$(grep 'JSON_STRING=' "${CFG_TEST_JSON_STRING_DATA}" | sed -e 's/JSON_STRING=//'); then
+	PRNERR "Failed initializing for JSON string data."
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
 
-##############################################################
-## Test by JSON string
-##
-echo ""
-echo "====== Start JSON string test =============================="
+PRNINFO "SUCCEED : Initialize test environment for JSON string"
 
-##
-## Initialize
-##
-echo "------ Initialize test environment for JSON string ---------"
-if [ -f ${TEST_LOG_FILE1} ]; then
-	rm -f ${TEST_LOG_FILE1}
-fi
-if [ -f ${TEST_LOG_FILE2} ]; then
-	rm -f ${TEST_LOG_FILE2}
-fi
+#
+# Run
+#
+PRNMSG "Run test for JSON string"
 
-JSON_STRING_DATA=`grep 'JSON_STRING=' ${CTPTESTSDIR}/test_json_string.data 2>/dev/null | sed 's/JSON_STRING=//' 2>/dev/null`
-if [ $? -ne 0 ]; then
-	echo "ERROR: failed initializing for JSON string data."
-	echo "RESULT --> FAILED"
+if ! "${CTPTESTBIN}" "${DTORLIBSO}" "${JSON_STRING_DATA}"; then
+	PRNERR "FAILED : test for JSON string"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNSUCCEED "SUCCEED : Test for JSON string"
 
-##
-## Run test
-##
-echo "------ Start testing for JSON string -----------------------"
-${CTPTESTBIN} ${DTORLIBSO} "${JSON_STRING_DATA}"
+#
+# Check result
+#
+PRNMSG "Check result for JSON string"
 
-if [ $? -ne 0 ]; then
-	echo "ERROR: test program returned false."
-	echo "RESULT --> FAILED"
+SED_LOG_FILE1=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE1}" 2> /dev/null)
+SED_LOG_FILE2=$(sed -e 's/\[0x[0-9a-f]*\] //' "${TEST_LOG_FILE2}" 2> /dev/null)
+
+if [ -z "${SED_LOG_FILE1}" ] || [ -z "${SED_LOG_FILE2}" ] || [ "${SED_LOG_FILE1}" != "${SED_LOG_FILE2}" ]; then
+	PRNERR "FAILED : Check result for JSON string"
 	exit 1
 fi
-echo "RESULT --> SUCCEED"
+PRNINFO "SUCCEED : Check result for JSON string"
 
-##
-## Check result
-##
-echo "------ Check result for JSON string ------------------------"
-SED_LOG_FILE1=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE1} 2> /dev/null`
-SED_LOG_FILE2=`sed 's/\[0x[0-9a-f]*\] //' ${TEST_LOG_FILE2} 2> /dev/null`
+PRNSUCCEED "TEST JSON STRING"
 
-if [ "X${SED_LOG_FILE1}" = "X" -o "X${SED_LOG_FILE2}" = "X" -o "X${SED_LOG_FILE1}" != "X${SED_LOG_FILE2}" ]; then
-	echo "ERROR: test result is false."
-	echo "RESULT --> FAILED"
-	exit 1
+#==============================================================
+# Cleanup
+#==============================================================
+PRNTITLE "CLEANUP"
+
+if [ -f "${TEST_LOG_FILE1}" ]; then
+	rm -f "${TEST_LOG_FILE1}"
 fi
-echo "RESULT --> SUCCEED"
-
-
-##############################################################
-## Cleanup
-##
-echo ""
-echo "====== Clear all environment ==============================="
-
-if [ -f ${TEST_LOG_FILE1} ]; then
-	rm -f ${TEST_LOG_FILE1}
+if [ -f "${TEST_LOG_FILE2}" ]; then
+	rm -f "${TEST_LOG_FILE2}"
 fi
-if [ -f ${TEST_LOG_FILE2} ]; then
-	rm -f ${TEST_LOG_FILE2}
-fi
-echo "RESULT --> SUCCEED"
-
-##############################################################
-## Finish
-##
-echo ""
-echo "====== Finish all =========================================="
-echo ""
-echo "RESULT --> SUCCEED"
-echo ""
+PRNSUCCEED "CLEANUP"
 
 exit 0
 
 #
-# VIM modelines
-#
-# vim:set ts=4 fenc=utf-8:
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: noexpandtab sw=4 ts=4 fdm=marker
+# vim<600: noexpandtab sw=4 ts=4
 #

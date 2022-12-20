@@ -1,5 +1,5 @@
 k2htp_mdtor
-----------
+-----------
 [![C/C++ AntPickax CI](https://github.com/yahoojapan/k2htp_mdtor/workflows/C/C++%20AntPickax%20CI/badge.svg)](https://github.com/yahoojapan/k2htp_mdtor/actions)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/yahoojapan/k2htp_mdtor/master/COPYING)
 [![GitHub forks](https://img.shields.io/github/forks/yahoojapan/k2htp_mdtor.svg)](https://github.com/yahoojapan/k2htp_mdtor/network)
@@ -39,4 +39,3 @@ This software is released under the MIT License, see the license file.
 [AntPickax](https://antpick.ax/) is an open source project by [Yahoo Japan Corporation](https://about.yahoo.co.jp/info/en/company/).
 
 Copyright(C) 2016 Yahoo Japan Corporation.
-

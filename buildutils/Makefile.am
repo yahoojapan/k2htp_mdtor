@@ -23,7 +23,6 @@
 # REVISION:
 #
 
-
 EXTRA_DIST =make_variables.sh \
 			make_release_version_file.sh \
 			make_commit_hash.sh \
@@ -34,7 +33,10 @@ EXTRA_DIST =make_variables.sh \
 			rpm_build.sh
 
 #
-# VIM modelines
-#
-# vim:set ts=4 fenc=utf-8:
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: noexpandtab sw=4 ts=4 fdm=marker
+# vim<600: noexpandtab sw=4 ts=4
 #

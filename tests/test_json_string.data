@@ -17,7 +17,10 @@
 JSON_STRING={ 'K2HTPMDTOR': { 'RUN_MODE': 'ALL' }, 'K2HTPMDTOR_TP': [ { 'TPPATH': 'libk2htpmdtordmy.so', 'TPCONF': '/tmp/libk2htpmdtordmy.log' }, { 'TPPATH': 'libk2htpmdtordmy2.so', 'TPCONF': '/tmp/libk2htpmdtordmy2.log' } ] }
 
 #
-# VIM modelines
-#
-# vim:set ts=4 fenc=utf-8:
+# Local variables:
+# tab-width: 4
+# c-basic-offset: 4
+# End:
+# vim600: noexpandtab sw=4 ts=4 fdm=marker
+# vim<600: noexpandtab sw=4 ts=4
 #

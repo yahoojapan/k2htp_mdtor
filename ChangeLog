@@ -1,3 +1,21 @@
+k2htpmdtor (1.0.5) unstable; urgency=low
+
+  * Changed CI process flow/OSs and added Alpine OS - #30
+  * Updated header and footer in comment lines - #29
+  * Updated issue/pullrequest templates and README - #28
+  * Added ShellCheck processing and reviewed cppcheck - #27
+  * Eliminated unnecessary copies in build_helper.sh - #26
+  * Updated github actions process and support os, and fixed bugs - #25
+  * Updated debian_build.sh for changing grep parameter - #24
+  * Updated common build scripts - #23
+  * Updated Antpickax common scripts and tools under the buildutils directory - #22
+  * Fixed errors reported by cppcheck 2.9 - #21
+  * Enabled external customization of configure.ac and fixed for building - #20
+  * Fixes markdown syntax errors - #19
+  * Drops Fedora28 and CentOS6.x from our support OS - #18
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Fri, 10 Feb 2023 13:43:58 +0900
+
 k2htpmdtor (1.0.4) unstable; urgency=low
 
   * Fixed centos8 build and removed centos6 build - #16

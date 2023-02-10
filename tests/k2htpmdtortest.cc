@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <libgen.h>
 
 #include <k2hash/k2hshm.h>
 #include <k2hash/k2htransfunc.h>

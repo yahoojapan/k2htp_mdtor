@@ -30,7 +30,8 @@ EXTRA_DIST =make_variables.sh \
 			make_rpm_changelog.sh \
 			make_description.sh \
 			debian_build.sh \
-			rpm_build.sh
+			rpm_build.sh \
+			alpine_build.sh
 
 #
 # Local variables:

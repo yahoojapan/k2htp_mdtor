@@ -1,3 +1,10 @@
+k2htpmdtor (1.0.7) unstable; urgency=low
+
+  * Updated tool scripts and support OSs - #35
+  * Fixed .gitignore to exclude APKBUILD.templ - #34
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Thu, 31 Aug 2023 16:43:35 +0900
+
 k2htpmdtor (1.0.6) unstable; urgency=low
 
   * Updated building/packaging logic for ALPINE - #32

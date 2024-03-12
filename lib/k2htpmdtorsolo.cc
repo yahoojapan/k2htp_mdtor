@@ -173,6 +173,8 @@ bool K2HtpMdtorSolo::ReadIniFileContents(const char* filepath, mdtorstrlst_t& li
 				// found include.
 				bool	found_same_file = false;
 				for(mdtorstrlst_t::const_iterator iter = allfiles.begin(); iter != allfiles.end(); ++iter){
+					// cppcheck-suppress unmatchedSuppression
+					// cppcheck-suppress useStlAlgorithm
 					if(value == (*iter)){
 						found_same_file = true;
 						break;

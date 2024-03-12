@@ -41,6 +41,8 @@ MdtorTpLib::~MdtorTpLib()
 {
 	if(IsLoaded()){
 		MSG_K2HPRN("Called destructor before unload library, thus try to unload it.");
+		// cppcheck-suppress unmatchedSuppression
+		// cppcheck-suppress knownConditionTrueFalse
 		if(!Unload()){
 			ERR_K2HPRN("Failed to unload library at destructor, but continue and you will get something error after this.");
 		}
@@ -89,13 +91,13 @@ bool MdtorTpLib::Load(const char* path, const char* pconfig)
 	const char*	pError;				// call because dlerror result is set NULL.
 	bool		result = true;
 	if(NULL == (fp_k2h_trans = reinterpret_cast<Tfp_k2h_trans>(dlsym(hDynLib, "k2h_trans"))) && NULL != (pError = dlerror())){
-		ERR_K2HPRN("Failed to load symbol(k2h_trans), error = %s", pError ? pError : "unknown");
+		ERR_K2HPRN("Failed to load symbol(k2h_trans), error = %s", pError);
 		result = false;
 	}else if(NULL == (fp_k2h_trans_version = reinterpret_cast<Tfp_k2h_trans_version>(dlsym(hDynLib, "k2h_trans_version"))) && NULL != (pError = dlerror())){
-		ERR_K2HPRN("Failed to load symbol(k2h_trans_version), error = %s", pError ? pError : "unknown");
+		ERR_K2HPRN("Failed to load symbol(k2h_trans_version), error = %s", pError);
 		result = false;
 	}else if(NULL == (fp_k2h_trans_cntl = reinterpret_cast<Tfp_k2h_trans_cntl>(dlsym(hDynLib, "k2h_trans_cntl"))) && NULL != (pError = dlerror())){
-		ERR_K2HPRN("Failed to load symbol(k2h_trans_cntl), error = %s", pError ? pError : "unknown");
+		ERR_K2HPRN("Failed to load symbol(k2h_trans_cntl), error = %s", pError);
 		result = false;
 	}
 

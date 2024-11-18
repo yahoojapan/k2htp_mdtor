@@ -1,3 +1,9 @@
+k2htpmdtor (1.0.12) unstable; urgency=low
+
+  * Changed supported OS and modified some codes - #45
+
+ -- Takeshi Nakatani <ggtakec@gmail.com>  Mon, 18 Nov 2024 20:57:07 +0900
+
 k2htpmdtor (1.0.11) unstable; urgency=low
 
   * Changed support OS and Fixed about cppcheck, etc - #43

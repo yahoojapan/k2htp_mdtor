@@ -7,7 +7,7 @@ k2htp_mdtor
 [![GitHub issues](https://img.shields.io/github/issues/yahoojapan/k2htp_mdtor.svg)](https://github.com/yahoojapan/k2htp_mdtor/issues)
 [![debian packages](https://img.shields.io/badge/deb-packagecloud.io-844fec.svg)](https://packagecloud.io/antpickax/stable)
 [![RPM packages](https://img.shields.io/badge/rpm-packagecloud.io-844fec.svg)](https://packagecloud.io/antpickax/stable)
-
+[![ALPINE packages](https://img.shields.io/badge/apk-packagecloud.io-844fec.svg)](https://packagecloud.io/antpickax/stable)
 
 **K2HTPMDTOR** - **K2H**ash **T**ransaction **P**lugin for **M**ultiple **D**istributed **T**ransaction **O**f **R**epeater
 
@@ -31,6 +31,7 @@ Read the following documents about **K2HTPMDTOR** for details.
 ### Packages
   - [RPM packages(packagecloud.io)](https://packagecloud.io/antpickax/stable)
   - [Debian packages(packagecloud.io)](https://packagecloud.io/antpickax/stable)
+  - [ALPINE packages(packagecloud.io)](https://packagecloud.io/antpickax/stable)
 
 ### License
 This software is released under the MIT License, see the license file.

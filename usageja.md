@@ -24,31 +24,28 @@ next_string: Build
 
 このセクションではバイナリパッケージのインストール方法を説明します。ソースコードからバイナリをビルドしたい場合は[Build](https://k2htpmdtor.antpick.ax/buildja.html)ページを読んでください。
 
-最近のDebianベースLinuxの利用者は、以下の手順に従ってください。
-```bash
+### DebianベースLinuxの利用者は、以下の手順に従ってください。
+```
 $ sudo apt-get update -y
 $ sudo apt-get install curl -y
-$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.deb.sh \
-    | sudo bash
+$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.deb.sh | sudo bash
 $ sudo apt-get install k2htpmdtor
 ```
 
-Fedoraの利用者は、以下の手順に従ってください。
-```bash
+### RPMベースのLinuxの場合は、以下の手順に従ってください。
+```
 $ sudo dnf makecache
 $ sudo dnf install curl -y
-$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh \
-    | sudo bash
+$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh | sudo bash
 $ sudo dnf install k2htpmdtor -y
 ```
 
-その他最近のRPMベースのLinuxの場合は、以下の手順に従ってください。
-```bash
-$ sudo yum makecache
-$ sudo yum install curl -y
-$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh \
-    | sudo bash
-$ sudo yum install k2htpmdtor -y
+### ALPINEベースのLinuxの場合は、以下の手順に従ってください。
+```
+# apk update
+# apk add curl
+# curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.alpine.sh | sh
+# apk add k2htpmdtor
 ```
 
 ## サンプルコードを実行する

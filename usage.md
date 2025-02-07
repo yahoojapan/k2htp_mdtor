@@ -24,31 +24,28 @@ This chapter instructs how to use a **k2htp_mdtor**(aka **K2HTPMDTOR**) example 
 
 This section instructs how to install binary packages. Read the [Build](https://k2htpmdtor.antpick.ax/build.html) page if you want to build the binary from the source code.
 
-For recent Debian-based Linux distributions users, follow the steps below:
-```bash
+### For Debian-based Linux distributions users, follow the steps below:
+```
 $ sudo apt-get update -y
 $ sudo apt-get install curl -y
-$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.deb.sh \
-    | sudo bash
+$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.deb.sh | sudo bash
 $ sudo apt-get install k2htpmdtor
 ```
 
-For users who use supported Fedora other than latest version, follow the steps below:
-```bash
+### For RPM-based Linux distributions users, follow the steps below:
+```
 $ sudo dnf makecache
 $ sudo dnf install curl -y
-$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh \
-    | sudo bash
+$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh | sudo bash
 $ sudo dnf install k2htpmdtor -y
 ```
 
-For other recent RPM-based Linux distributions users, follow the steps below:
-```bash
-$ sudo yum makecache
-$ sudo yum install curl -y
-$ curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.rpm.sh \
-    | sudo bash
-$ sudo yum install k2htpmdtor -y
+### For ALPINE-based Linux distributions users, follow the steps below:
+```
+# apk update
+# apk add curl
+# curl -s https://packagecloud.io/install/repositories/antpickax/stable/script.alpine.sh | sh
+# apk add k2htpmdtor
 ```
 
 ## Run the example code

@@ -24,7 +24,7 @@ next_string: Usage
 1. load関数を呼び出してメモリにロードしてください。
 2. enable関数を呼び出してトランザクションを有効にします。
 
-### ロードmdtor
+### ロードする
 
 **K2HTPMDTOR**は[K2HASH](https://k2hash.antpick.ax/indexja.html)トランザクションログを扱うための共有ライブラリです。アプリケーションは次のAPIを呼び出して**K2HTPMDTOR**をロードします。 APIは現在CおよびC ++で利用可能です。詳細はそれぞれのAPIリファレンスを読んでください。
 

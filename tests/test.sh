@@ -87,7 +87,7 @@ PRNERR()
 	echo "${CBLD}${CRED}[ERROR]${CDEF} ${CRED}$*${CDEF}"
 }
 
-# shellcheck disable=SC2317
+# shellcheck disable=SC2317,SC2329
 PRNWARN()
 {
 	echo "${CYEL}${CREV}[WARNING]${CDEF} $*"

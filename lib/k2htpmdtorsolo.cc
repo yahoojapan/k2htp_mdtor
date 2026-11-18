@@ -940,7 +940,6 @@ bool K2HtpMdtorSolo::DoTransaction(PBCOM pBinCom)
 				}
 			}
 		}
-		tplibs.clear();
 		if(0 < success_count){
 			result = true;
 		}

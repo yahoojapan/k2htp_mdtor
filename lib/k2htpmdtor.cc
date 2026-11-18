@@ -180,9 +180,11 @@ bool k2h_trans_cntl(k2h_h handle, PTRANSOPT pOpt)
 			ERR_K2HPRN("K2HTPMDTOR needs parameter for configuration.");
 			return false;
 		}
+		string	strconf;
+		strconf.assign(reinterpret_cast<const char*>(pOpt->byTransParam), pOpt->ParamLength);
 
 		// set transaction plugins for k2hash
-		if(!K2HtpMdtorManager::Get()->Add(handle, reinterpret_cast<const char*>(pOpt->byTransParam))){
+		if(!K2HtpMdtorManager::Get()->Add(handle, strconf.c_str())){
 			ERR_K2HPRN("K2HTPMDTOR could not set k2hash handle(0x%016" PRIx64 ") with configuration(%s).", handle, reinterpret_cast<const char*>(pOpt->byTransParam));
 			return false;
 		}
